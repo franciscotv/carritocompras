@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script type="text/javascript" >
+var items = [
+{ 
+  "producto": "juegos",
+  "precio": 1000
+},
+{ 
+  "producto": "musica",
+  "precio": 6500
+},
+{ 
+  "producto": "comida",
+  "precio": 1800
+},
+{ 
+  "producto": "diversion",
+  "precio": 3000
+},
+{ 
+  "producto": "renta",
+  "precio": 8500
+},
+{ 
+  "producto": "drogas",
+  "precio": 2500
+},
+];
+
+var total = 0;
+for(var i = 0; i<items.length;i++){
+  total = total + items[i].precio;
+  console.log(total + items[i].precio);
+}
+
+
+Array.prototype.fMap = function (callback) {
+  var collection = [];
+  this.forEach(function(item){
+    collection.push(callback(item));
+  });
+  return collection;
+  console.log(collection);
+}
+
+items.fMap(function(cosas){
+  console.log(cosas.producto);
+});
+
+var lista = items.fMap(function(cosas) {
+  return { producto: cosas.producto }
+});
+
+
+</script>
+</body>
+</html>
